@@ -16,9 +16,11 @@
             "type": "package",
             "package": {
                 "name": "duncan3dc/logger-aware-trait",
+                "version": "1",
                 "source": {
                     "url": "https://github.com/willtomlinson/logger-aware-trait.git",
-                    "type": "git"
+                    "type": "git",
+                    "reference": "main"
                 }
             }
         }
@@ -26,7 +28,7 @@
     "require": {
         "duncan3dc/cache": "^1.0 || ^2.0",
         "duncan3dc/domparser": "^1.4.1 || ^2.1",
-        "duncan3dc/logger-aware-trait": "*",
+        "duncan3dc/logger-aware-trait": "1",
         "duncan3dc/sonos-common": "^1.0",
         "duncan3dc/speaker": "^1.0",
         "guzzlehttp/guzzle": "^6.0 || ^7.0",
