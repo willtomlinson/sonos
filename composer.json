@@ -18,8 +18,7 @@
                 "name": "duncan3dc/logger-aware-trait",
                 "source": {
                     "url": "https://github.com/willtomlinson/logger-aware-trait.git",
-                    "type": "git",
-                    "reference": "origin/master"
+                    "type": "git"
                 }
             }
         }
