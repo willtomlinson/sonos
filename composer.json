@@ -16,7 +16,7 @@
             "type": "package",
             "package": {
                 "name": "duncan3dc/logger-aware-trait",
-                "version": "1",
+                "version": "1.0",
                 "source": {
                     "url": "https://github.com/willtomlinson/logger-aware-trait.git",
                     "type": "git",
