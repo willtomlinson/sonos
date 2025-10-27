@@ -52,13 +52,10 @@ final class Discovery implements CollectionInterface
      * Set the logger object to use.
      *
      * @var LoggerInterface $logger The logging object
-     *
-     * @return $this
      */
-    public function setLogger(LoggerInterface $logger)
+    public function setLogger(LoggerInterface $logger): void
     {
         $this->collection->setLogger($logger);
-        return $this;
     }
 
 

@@ -6,6 +6,8 @@ use duncan3dc\Sonos\Interfaces\Utils\DirectoryInterface;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
 use League\Flysystem\FilesystemInterface;
+use League\Flysystem\FilesystemOperator;
+use League\Flysystem\Local\LocalFilesystemAdapter;
 
 /**
  * Represents a shared directory.
@@ -39,14 +41,14 @@ final class Directory implements DirectoryInterface
     {
         # If a string was passed then convert it to a Filesystem instance
         if (is_string($filesystem)) {
-            $adapter = new Local($filesystem);
+            $adapter = new LocalFilesystemAdapter($filesystem);
             $filesystem = new Filesystem($adapter);
         }
 
         # Ensure we got a Filesystem instance
-        if (!$filesystem instanceof FilesystemInterface) {
+        if (!$filesystem instanceof FilesystemOperator) {
             $error = "Invalid filesystem,";
-            $error .= " must be an instance of " . FilesystemInterface::class;
+            $error .= " must be an instance of " . FilesystemOperator::class;
             $error .= " or a string containing a local path";
             throw new \InvalidArgumentException($error);
         }
