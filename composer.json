@@ -11,16 +11,10 @@
         "homepage": "https://github.com/duncan3dc",
         "role": "Developer"
     }],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/willtomlinson/logger-aware-trait"
-        }
-    ],
     "require": {
         "duncan3dc/cache": "^1.0 || ^2.0",
         "duncan3dc/domparser": "^1.4.1 || ^2.1",
-        "duncan3dc/logger-aware-trait": "dev-main",
+        "duncan3dc/logger-aware-trait": "^0.2 || ^1.0",
         "duncan3dc/sonos-common": "^1.0",
         "duncan3dc/speaker": "^1.0",
         "guzzlehttp/guzzle": "^6.0 || ^7.0",
