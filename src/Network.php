@@ -51,10 +51,12 @@ final class Network implements NetworkInterface, LoggerAwareInterface
      *
      * @param ?CollectionInterface $collection The collection of devices on this network
      */
-    public function __construct(?CollectionInterface $collection = null)
-    {
+    public function __construct(
+        ?CollectionInterface $collection = null,
+        string $discoveryUrl = ''
+    ) {
         if ($collection === null) {
-            $collection = new Discovery();
+            $collection = new Discovery(null, $discoveryUrl);
         }
         $this->collection = $collection;
     }
