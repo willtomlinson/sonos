@@ -2,6 +2,7 @@
 
 namespace duncan3dc\Sonos\Devices;
 
+use duncan3dc\Sonos\Exceptions\NetworkException;
 use duncan3dc\Sonos\Interfaces\Devices\CollectionInterface;
 use duncan3dc\Sonos\Interfaces\Devices\DeviceInterface;
 use duncan3dc\Sonos\Interfaces\Utils\SocketInterface;
