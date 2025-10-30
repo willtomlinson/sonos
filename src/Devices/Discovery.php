@@ -33,18 +33,26 @@ final class Discovery implements CollectionInterface
      */
     private $multicastAddress = "239.255.255.250";
 
+    /**
+     * @var string $discoveryUrl The discovery server URL.
+     */
+    private string $discoveryUrl;
 
+    
     /**
      * Create a new instance.
      *
      * @param ?CollectionInterface $collection The device collection to actually use
      */
-    public function __construct(?CollectionInterface $collection = null)
-    {
+    public function __construct(
+        ?CollectionInterface $collection = null,
+        string $discoveryUrl = ''
+    ) {
         if ($collection === null) {
             $collection = new Collection();
         }
         $this->collection = $collection;
+        $this->discoveryUrl = $discoveryUrl;
     }
 
 
@@ -182,7 +190,16 @@ final class Discovery implements CollectionInterface
     {
         $this->collection->getLogger()->info("discovering devices...");
 
-        $response = $socket->request();
+        if ($this->discoveryUrl) {
+            $this->collection->getLogger()->info("using discovery server at {$this->discoveryUrl}");
+            $response = file_get_contents($this->discoveryUrl);
+            if ($response === false) {
+                $this->collection->getLogger()->error("failed to contact discovery server at {$this->discoveryUrl}");
+                throw new NetworkException("failed to contact discovery server at {$this->discoveryUrl}");
+            }
+        } else {
+            $response = $socket->request();
+        }
 
         $search = "urn:schemas-upnp-org:device:ZonePlayer:1";
 
